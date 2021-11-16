@@ -3,7 +3,7 @@
 ESTRN field output results are stored in temporary scratch steps for contour plot.
 """
 
-__VERSION__ = '1.0.0'
+__VERSION__ = '1.0.1'
 
 from abaqusGui import getAFXApp
 
@@ -12,7 +12,7 @@ toolset = getAFXApp().getAFXMainWindow().getPluginToolset()
 toolset.registerKernelMenuButton(
         moduleName='estrn',
         functionName='vis_plugin()',
-        buttonText='Solidworks ESTRN',
+        buttonText='Solidworks Equivalent Strain',
         author='Carl Osterwisch',
         description=__doc__,
         version=__VERSION__,

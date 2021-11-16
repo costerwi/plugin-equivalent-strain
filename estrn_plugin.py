@@ -12,7 +12,7 @@ toolset = getAFXApp().getAFXMainWindow().getPluginToolset()
 toolset.registerKernelMenuButton(
         moduleName='estrn',
         functionName='vis_plugin()',
-        buttonText='Solidworks ESTRN',
+        buttonText='Solidworks Equivalent Strain',
         author='Carl Osterwisch',
         description=__doc__,
         version=__VERSION__,

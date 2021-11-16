@@ -52,6 +52,9 @@ def vis_plugin():
     odb = session.odbs[odbDisplay.name] # odb in current viewport
     sodb = session.ScratchOdb(odb) # temporary scratch odb
 
+    nFrame = 0
+    nFrames = sum([len(s.frames) for s in odb.steps.values()])
+
     for n, step in enumerate(odb.steps.values()): # loop over all steps
         sname = 'Scratch ' + step.name
         if sname in sodb.steps:
@@ -65,6 +68,13 @@ def vis_plugin():
                     )
 
         for frame in step.frames: # loop over all frames
+            nFrame += 1
+            milestone(
+                    message = 'Calculating equivalent strain',
+                    object = 'frames',
+                    done = nFrame,
+                    total = nFrames,
+                    )
             if not 'NE' in frame.fieldOutputs:
                 print('Step "{}" is missing "NE" field output'.format(step.name))
                 break
@@ -85,12 +95,6 @@ def vis_plugin():
                         description = 'Solidworks equivalent strain',
                         field = estrn(frame.fieldOutputs['NE']),
                         )
-        milestone(
-                message = 'Calculating equivalent strain',
-                object = 'steps',
-                done = n + 1,
-                total = len(odb.steps),
-                )
 
 
 if '__main__' == __name__:

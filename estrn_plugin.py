@@ -3,7 +3,7 @@
 ESTRN field output results are stored in temporary scratch steps for contour plot.
 """
 
-__VERSION__ = '1.0.0'
+__VERSION__ = '1.0.1'
 
 from abaqusGui import getAFXApp
 
